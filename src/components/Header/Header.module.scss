@@ -1,0 +1,28 @@
+@import '../../globalStyle/variables';
+
+.header {
+	background-color: red;
+}
+
+.links {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	color: $primary_color;
+}
+.link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	padding: 10px;
+	border: 1px solid red;
+	border-radius: 32px;
+	text-decoration: none;
+	color: $primary_color;
+	font-size: 1.25rem;
+	font-family: $primary_font;
+	background-color: rgba(255, 255, 255, 0.24);
+}

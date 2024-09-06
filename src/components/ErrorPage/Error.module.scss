@@ -1,0 +1,31 @@
+@import '../../globalStyle/variables';
+
+.error_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 90vh;
+}
+
+.title {
+	font-family: $primary_font;
+	font-size: 2rem;
+	background-size: 100%;
+	background-image: $gradient_color;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+	font-family: $primary_font;
+	font-size: 1.3rem;
+	color: $black_color;
+}
+
+.face {
+	max-width: 300px;
+	max-height: 300px;
+	width: 100%;
+	height: 100%;
+}

@@ -8,7 +8,7 @@ export const Error: FC = () => {
 			<img className={styles.face} src={sad_face} alt='sad_face' />
 			<h1 className={styles.title}>Ошибка 404</h1>
 			<p className={styles.subtitle}>
-				Странцу которыую вы пытаетесь найти не существует
+				Страницу которую вы пытаетесь найти не существует
 			</p>
 		</div>
 	)

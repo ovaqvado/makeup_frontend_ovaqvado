@@ -1,12 +1,14 @@
-import './App.css'
+import styles from './App.module.scss'
+import { BottomBarPhone } from './components/BottomBarPhone/BottomBarPhone'
 import { Header } from './components/Header/Header'
 import AppRouter from './router'
 
 function App() {
 	return (
-		<div className='App'>
+		<div className={styles.App}>
 			<Header />
 			<AppRouter />
+			<BottomBarPhone />
 		</div>
 	)
 }

@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-
 // Import img
 import arrow_bottom from '../../img/arrow_bottom.svg'
 import burger from '../../img/burger.svg'
@@ -11,7 +10,7 @@ import lessons from '../../img/lessons.svg'
 import notification from '../../img/notification.svg'
 import users from '../../img/people.svg'
 import icon_profile from '../../img/profile_icon.svg'
-
+// Styles
 import styles from './Header.module.scss'
 
 // Переводы
@@ -66,9 +65,7 @@ export const Header: FC = () => {
 
 	return (
 		<div className={styles.header}>
-			<h1 className={styles.title}>
-				{translations[language].title} <Link to='/profile'>Profile</Link>{' '}
-			</h1>
+			<h1 className={styles.title}>{translations[language].title} </h1>
 			<div className={styles.links}>
 				{translations[language].links.map(link => (
 					<Link

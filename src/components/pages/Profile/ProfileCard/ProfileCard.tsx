@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react'
 import styles from '../Profile.module.scss'
 import location from './img/location.svg'
-import undefinedImage from './img/photo_undefined.svg'
+import undefinedImage from './img/pussykiller.png'
 import videos from './img/videos.svg'
 import view from './img/view.svg'
 
@@ -24,11 +24,13 @@ const ProfileCard: FC = () => {
 
 	return (
 		<div className={styles.profile_box}>
-			<img
-				className={styles.img_me}
-				src={undefinedImage}
-				alt='profile_photo or icon'
-			/>
+			<div className={styles.profile_img_box}>
+				<img
+					className={styles.img_me}
+					src={undefinedImage}
+					alt='profile_photo or icon'
+				/>
+			</div>
 			<div className={styles.box_loc_vid_view}>
 				<p className={styles.location}>
 					<img

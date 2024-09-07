@@ -66,7 +66,9 @@ export const Header: FC = () => {
 
 	return (
 		<div className={styles.header}>
-			<h1 className={styles.title}>{translations[language].title}</h1>
+			<h1 className={styles.title}>
+				{translations[language].title} <Link to='/profile'>Profile</Link>{' '}
+			</h1>
 			<div className={styles.links}>
 				{translations[language].links.map(link => (
 					<Link

@@ -20,6 +20,10 @@
 	box-shadow: 2px 4px 10px 0px rgba(25, 18, 129, 0.25);
 }
 
+.box_name_mobile {
+	display: none;
+}
+
 .img_me {
 	width: 100%;
 	height: 433px;
@@ -277,30 +281,51 @@
 	}
 }
 
+// Mobile version
+
 @media (width <= 425px) {
 	.profile_all_container {
-		position: fixed;
+		position: inline;
 		display: flex;
-		justify-content: center;
-		align-items: center;
+		flex-direction: column;
+	}
+
+	.username_box {
+		display: none;
 	}
 
 	.profile_box {
-		// position: sticky;
 		display: flex;
 		background: none;
 		box-shadow: none;
 		align-items: center;
-		justify-content: center;
 		width: 100%;
+		max-width: 425px;
+		margin-left: 0;
 		margin-top: 130px;
-		margin-left: 7px;
 	}
 
 	.img_me {
 		width: 210px;
 		height: 210px;
 		border-radius: 150px;
+	}
+
+	.box_name_mobile {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 28px;
+	}
+
+	.username_mobile {
+		background-image: $gradient_color;
+		background-size: 100%;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-family: $secondary_font;
+		font-weight: 700;
+		font-size: 1.25rem;
 	}
 
 	.profile_img_box {
@@ -334,6 +359,31 @@
 		width: 400px;
 	}
 
+	.inputs_box {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		max-width: 400px;
+		gap: 10px;
+		margin-bottom: 10px;
+	}
+
+	.input {
+		width: 350px;
+		border-radius: 20px;
+		border: none;
+		background: rgba(240, 240, 240, 1);
+		padding: 14px 22px;
+
+		outline: none;
+		&::placeholder {
+			font-family: $primary_font;
+			font-size: 1rem;
+			color: rgba(152, 152, 152, 1);
+		}
+	}
+
 	.info_me {
 		text-align: left;
 		width: 400px;
@@ -351,10 +401,6 @@
 	.buttons_page_profile {
 		display: none;
 		// flex-direction: column;
-	}
-
-	.username_box {
-		display: none;
 	}
 
 	.profile_top_img {

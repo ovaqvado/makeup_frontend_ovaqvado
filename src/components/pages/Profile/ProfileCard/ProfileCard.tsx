@@ -6,6 +6,7 @@ import videos from './img/videos.svg'
 import view from './img/view.svg'
 
 const ProfileCard: FC = () => {
+	const [isEditing, setIsEditing] = useState(false)
 	const [activeButton, setActiveButton] = useState<string | null>(null)
 
 	// Загружаем состояние из localStorage при инициализации компонента
@@ -22,6 +23,14 @@ const ProfileCard: FC = () => {
 		localStorage.setItem('activeButton', buttonName)
 	}
 
+	// Обработка нажатия на кнопку редактирования/сохранения
+	const toggleEdit = () => {
+		setIsEditing(prev => !prev)
+		if (isEditing) {
+			// Сохранение данных (если нужно)
+		}
+	}
+
 	return (
 		<div className={styles.profile_box}>
 			<div className={styles.profile_img_box}>
@@ -30,6 +39,9 @@ const ProfileCard: FC = () => {
 					src={undefinedImage}
 					alt='profile_photo or icon'
 				/>
+			</div>
+			<div className={styles.box_name_mobile}>
+				<p className={styles.username_mobile}>ЛЕНА МОТИНОВА</p>
 			</div>
 			<div className={styles.box_loc_vid_view}>
 				<p className={styles.location}>
@@ -54,29 +66,74 @@ const ProfileCard: FC = () => {
 					</p>
 				</div>
 			</div>
+			{isEditing && (
+				<div className={styles.inputs_box}>
+					<input
+						className={styles.input}
+						type='text'
+						placeholder='Введите Имя*'
+						required
+					/>
+					<input
+						className={styles.input}
+						type='text'
+						placeholder='Введите Фамилию*'
+						required
+					/>
+					<input
+						className={styles.input}
+						type='text'
+						placeholder='Введите теллеграм'
+					/>
+					<input
+						className={styles.input}
+						type='number'
+						placeholder='Введите телефон'
+					/>
+					<input
+						className={styles.input}
+						type='text'
+						placeholder='Введите местоположение*'
+						required
+					/>
+				</div>
+			)}
 			<div className={styles.buttons}>
-				{[
-					'Редактировать',
-					'Опубликовать урок',
-					'Опубликовать событие',
-					'Опубликовать фото',
-				].map(button => (
-					<button
-						key={button}
-						className={`${styles.button} ${
-							activeButton === button ? styles.active_button : ''
+				<button
+					className={`${styles.button} ${
+						isEditing ? styles.active_button : ''
+					}`}
+					onClick={toggleEdit}
+				>
+					<span
+						className={`${styles.btn_text} ${
+							isEditing ? styles.btn_text_active : ''
 						}`}
-						onClick={() => handleButtonClick(button)}
 					>
-						<span
-							className={`${styles.btn_text} ${
-								activeButton === button ? styles.btn_text_active : ''
+						{isEditing ? 'Сохранить' : 'Редактировать'}
+					</span>
+				</button>
+
+				{/* Остальные кнопки */}
+				{['Опубликовать урок', 'Опубликовать событие', 'Опубликовать фото'].map(
+					button => (
+						<button
+							key={button}
+							className={`${styles.button} ${
+								activeButton === button ? styles.active_button : ''
 							}`}
+							onClick={() => handleButtonClick(button)}
 						>
-							{button}
-						</span>
-					</button>
-				))}
+							<span
+								className={`${styles.btn_text} ${
+									activeButton === button ? styles.btn_text_active : ''
+								}`}
+							>
+								{button}
+							</span>
+						</button>
+					)
+				)}
 			</div>
 			<div className={styles.info_me}>
 				<h3 className={styles.title_me}>Обо мне:</h3>

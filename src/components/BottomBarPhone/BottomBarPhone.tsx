@@ -44,7 +44,7 @@ export const BottomBarPhone: FC = () => {
 				<div className={styles.box_bar_profile}>
 					<Link className={styles.profile_link} to='/profile'>
 						<img className={styles.profile_bar} src={undefined} alt='icon' />{' '}
-						<img src={top_arrow} alt='' />
+						<img className={styles.arrow_profile} src={top_arrow} alt='' />
 					</Link>
 					<p className={styles.text_link}>Профиль</p>
 				</div>

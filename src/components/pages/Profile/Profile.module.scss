@@ -298,7 +298,6 @@ input[type='number']::-webkit-outer-spin-button {
 
 @media (width <= 1024px) {
 	.profile_box {
-		width: 300px;
 	}
 
 	.img_me {
@@ -464,11 +463,55 @@ input[type='number']::-webkit-outer-spin-button {
 	}
 
 	.info_me {
-		width: 350px;
+		max-width: 230px;
+		width: 100%;
 		padding-left: 0px;
 	}
 
 	.input {
 		max-width: 305px;
+	}
+}
+
+@media (width <= 325px) {
+	.profile_top_img {
+		height: 100%;
+	}
+
+	.profile_all_container {
+		max-width: 325px;
+		padding-bottom: 20px;
+	}
+
+	.profile_box {
+		max-width: 325px;
+	}
+
+	.img_me {
+		width: 150px;
+		height: 150px;
+	}
+
+	.button {
+		width: 290px;
+		padding: 5px 65px;
+	}
+
+	.info_me {
+		width: 90%;
+		max-width: 250px;
+	}
+
+	.btn_text {
+		font-size: 0.8rem;
+	}
+
+	.input {
+		max-width: 250px;
+		padding: 10px 20px;
+		font-size: 0.8rem;
+		&::placeholder {
+			font-size: 0.8rem;
+		}
 	}
 }

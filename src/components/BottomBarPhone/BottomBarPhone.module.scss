@@ -78,6 +78,9 @@
 @media (width <= 425px) {
 	.box_bottom_bar {
 		display: flex;
+		width: 100%;
+		background-size: contain;
+		background-repeat: no-repeat;
 	}
 }
 
@@ -164,25 +167,18 @@
 	}
 
 	.primary_link {
-		gap: 10px;
+		gap: 6px;
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	}
 
 	.box_link_users {
-		margin-left: -10px;
-		margin-right: -10px;
+		margin-left: -2px;
+		margin-right: -2px;
 	}
 
 	.profile_bar {
-		width: 20px;
-		height: 20px;
-	}
-
-	.box_bar_profile {
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-		align-items: center;
+		width: 18px;
+		height: 18px;
 	}
 
 	.profile_link {
@@ -192,8 +188,8 @@
 		background-color: rgba(255, 255, 255, 0.5);
 		border-radius: 50px;
 		padding: 2px 13px 2px 13px;
-		height: 40px;
-		gap: 20px;
+		height: 30px;
+		gap: 10px;
 	}
 
 	.link {
@@ -202,19 +198,32 @@
 		align-items: center;
 		background-color: rgba(255, 255, 255, 0.5);
 		border-radius: 32px;
-		width: 45px;
-		height: 45px;
+		width: 30px;
+		height: 30px;
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	}
 
+	.img_link {
+		width: 17px;
+		height: 30px;
+	}
+
 	.profile_link {
-		height: 39px;
+		height: 25px;
+	}
+
+	.profile_bar {
+		width: 15px;
+	}
+
+	.arrow_profile {
+		width: 10px;
 	}
 
 	.text_link {
 		color: rgba(255, 255, 255, 1);
-		font-size: 0.625rem;
-		line-height: 1px;
+		font-size: 0.425rem;
+		line-height: 0px;
 		height: 0px;
 	}
 }

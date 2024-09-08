@@ -242,3 +242,33 @@
 		height: 20px;
 	}
 }
+
+@media (width <= 325px) {
+	.header {
+		height: 15px;
+	}
+
+	.title {
+		font-size: 1.4rem;
+	}
+
+	.button {
+		width: 35px;
+		height: 35px;
+	}
+
+	.img_language {
+		width: 30px;
+		height: 29px;
+	}
+
+	.image_radius {
+		width: 20px;
+		height: 33px;
+	}
+
+	.burger_img {
+		width: 17px;
+		height: 17px;
+	}
+}

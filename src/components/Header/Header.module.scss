@@ -42,7 +42,7 @@
 }
 
 .active {
-	background-color: #f0f0f0; // измените фоновый цвет активной ссылки
+	background-color: #f0f0f0;
 }
 
 .activeImage {
@@ -50,7 +50,7 @@
 }
 
 .activeText {
-	color: $links_color; // измените цвет текста активной ссылки
+	color: $links_color;
 }
 
 .title {
@@ -174,7 +174,6 @@
 
 @media (width <= 425px) {
 	.header {
-		// position: absolute;
 		padding-top: 60px;
 		display: flex;
 		justify-content: space-around;
@@ -215,4 +214,31 @@
 }
 
 @media (width <= 375px) {
+	.header {
+		height: 45px;
+	}
+
+	.title {
+		font-size: 1.7rem;
+	}
+
+	.button {
+		width: 40px;
+		height: 40px;
+	}
+
+	.img_language {
+		width: 35px;
+		height: 34px;
+	}
+
+	.image_radius {
+		width: 24px;
+		height: 32px;
+	}
+
+	.burger_img {
+		width: 20px;
+		height: 20px;
+	}
 }

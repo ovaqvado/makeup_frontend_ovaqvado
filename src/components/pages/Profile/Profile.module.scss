@@ -13,7 +13,7 @@
 	max-width: 410px;
 	height: auto;
 	width: 100%;
-	margin-top: 6%;
+	margin-top: 111px;
 	margin-left: 5%;
 	border-radius: 20px;
 	background-color: rgba(255, 255, 255, 1);
@@ -101,6 +101,34 @@
 .btn_text_active {
 	background-image: none;
 	-webkit-text-fill-color: $primary_color;
+}
+
+.inputs_box {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+.input {
+	width: 350px;
+	border-radius: 20px;
+	border: none;
+	background: rgba(240, 240, 240, 1);
+	padding: 14px 22px;
+
+	outline: none;
+	&::placeholder {
+		font-family: $primary_font;
+		font-size: 1rem;
+		color: rgba(152, 152, 152, 1);
+	}
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 .info_me {
@@ -295,7 +323,6 @@
 	}
 
 	.profile_box {
-		display: flex;
 		background: none;
 		box-shadow: none;
 		align-items: center;
@@ -338,7 +365,7 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		gap: 30px;
+		gap: 20px;
 	}
 
 	.videos_view {
@@ -359,13 +386,17 @@
 		width: 400px;
 	}
 
+	.buttons {
+		gap: 8px;
+	}
+
 	.inputs_box {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		max-width: 400px;
-		gap: 10px;
+		gap: 8px;
 		margin-bottom: 10px;
 	}
 
@@ -387,6 +418,7 @@
 	.info_me {
 		text-align: left;
 		width: 400px;
+		padding-bottom: 80px;
 	}
 
 	.title_me {
@@ -400,11 +432,43 @@
 
 	.buttons_page_profile {
 		display: none;
-		// flex-direction: column;
 	}
 
 	.profile_top_img {
 		content: url('./ProfileCard/img/phone_img_bg.svg');
-		height: 258px;
+		// height: 258px;
+	}
+}
+
+@media (width <= 375px) {
+	.profile_top_img {
+		height: auto;
+	}
+
+	.profile_all_container {
+		max-width: 375px;
+		padding-bottom: 20px;
+	}
+
+	.profile_box {
+		max-width: 375px;
+	}
+
+	.img_me {
+		width: 190px;
+		height: 190px;
+	}
+
+	.button {
+		width: 350px;
+	}
+
+	.info_me {
+		width: 350px;
+		padding-left: 0px;
+	}
+
+	.input {
+		max-width: 305px;
 	}
 }

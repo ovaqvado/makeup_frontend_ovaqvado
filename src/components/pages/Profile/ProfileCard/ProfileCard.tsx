@@ -9,7 +9,14 @@ const ProfileCard: FC = () => {
 	const [isEditing, setIsEditing] = useState(false)
 	const [activeButton, setActiveButton] = useState<string | null>(null)
 
-	// Загружаем состояние из localStorage при инициализации компонента
+	// Input Form
+	const [name, setName] = useState<string>('')
+	const [twoName, setTwoName] = useState<string>('')
+	const [locationText, setlocationText] = useState<string>('')
+	const [telegram, setTelegram] = useState('')
+	const [number, setNumber] = useState()
+	const [textMe, settextMe] = useState<string>('')
+
 	useEffect(() => {
 		const savedButton = localStorage.getItem('activeButton')
 		if (savedButton) {
@@ -17,17 +24,14 @@ const ProfileCard: FC = () => {
 		}
 	}, [])
 
-	// Функция для изменения кнопки и сохранения в localStorage
 	const handleButtonClick = (buttonName: string) => {
 		setActiveButton(buttonName)
 		localStorage.setItem('activeButton', buttonName)
 	}
 
-	// Обработка нажатия на кнопку редактирования/сохранения
 	const toggleEdit = () => {
 		setIsEditing(prev => !prev)
 		if (isEditing) {
-			// Сохранение данных (если нужно)
 		}
 	}
 
@@ -66,6 +70,8 @@ const ProfileCard: FC = () => {
 					</p>
 				</div>
 			</div>
+
+			{/* Условия для отображения инпутов */}
 			{isEditing && (
 				<div className={styles.inputs_box}>
 					<input
@@ -98,22 +104,13 @@ const ProfileCard: FC = () => {
 					/>
 				</div>
 			)}
+
 			<div className={styles.buttons}>
-				<button
-					className={`${styles.button} ${
-						isEditing ? styles.active_button : ''
-					}`}
-					onClick={toggleEdit}
-				>
-					<span
-						className={`${styles.btn_text} ${
-							isEditing ? styles.btn_text_active : ''
-						}`}
-					>
+				<button className={`${styles.button}`} onClick={toggleEdit}>
+					<span className={`${styles.btn_text}`}>
 						{isEditing ? 'Сохранить' : 'Редактировать'}
 					</span>
 				</button>
-
 				{/* Остальные кнопки */}
 				{['Опубликовать урок', 'Опубликовать событие', 'Опубликовать фото'].map(
 					button => (
@@ -135,6 +132,7 @@ const ProfileCard: FC = () => {
 					)
 				)}
 			</div>
+
 			<div className={styles.info_me}>
 				<h3 className={styles.title_me}>Обо мне:</h3>
 				<p className={styles.text_me}>Заполнить описание</p>

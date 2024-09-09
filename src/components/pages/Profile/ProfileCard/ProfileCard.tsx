@@ -74,34 +74,31 @@ const ProfileCard: FC = () => {
 			{/* Условия для отображения инпутов */}
 			{isEditing && (
 				<div className={styles.inputs_box}>
-					<input
-						className={styles.input}
-						type='text'
-						placeholder='Введите Имя*'
-						required
-					/>
-					<input
-						className={styles.input}
-						type='text'
-						placeholder='Введите Фамилию*'
-						required
-					/>
-					<input
-						className={styles.input}
-						type='text'
-						placeholder='Введите теллеграм'
-					/>
-					<input
-						className={styles.input}
-						type='number'
-						placeholder='Введите телефон'
-					/>
-					<input
-						className={styles.input}
-						type='text'
-						placeholder='Введите местоположение*'
-						required
-					/>
+					<div className={styles.group}>
+						<input type='text' required />
+						<span className={styles.highlight}></span>
+						<label>Введите Имя*</label>
+					</div>
+					<div className={styles.group}>
+						<input type='text' required />
+						<span className={styles.highlight}></span>
+						<label>Введите Фамилию*</label>
+					</div>
+					<div className={styles.group}>
+						<input type='text' />
+						<span className={styles.highlight}></span>
+						<label>Введите Telegram</label>
+					</div>
+					<div className={styles.group}>
+						<input type='text' />
+						<span className={styles.highlight}></span>
+						<label>Введите телефон</label>
+					</div>
+					<div className={styles.group}>
+						<input type='text' required />
+						<span className={styles.highlight}></span>
+						<label>Введите местоположение*</label>
+					</div>
 				</div>
 			)}
 

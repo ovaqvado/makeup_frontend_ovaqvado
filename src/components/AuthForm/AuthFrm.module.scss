@@ -1,0 +1,151 @@
+@import '/src//globalStyle/variables';
+.box_auth {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 427px;
+	height: 693px;
+	border-radius: 15px;
+	background-color: $primary_color;
+}
+
+.closeModal {
+	position: absolute;
+	top: 30px;
+	right: 20px;
+	width: 24px;
+	height: 24px;
+	opacity: 0.2;
+	cursor: pointer;
+	transition: opacity ease 0.5s;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.closeModal::before,
+.closeModal::after {
+	content: '';
+	position: absolute;
+	top: 10px;
+	display: block;
+	width: 24px;
+	height: 3px;
+	background: #000;
+}
+
+.closeModal::before {
+	transform: rotate(45deg);
+}
+
+.closeModal::after {
+	transform: rotate(-45deg);
+}
+
+.form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.title {
+	font-size: 2rem;
+	font-family: $secondary_font;
+	font-weight: 800;
+	height: 35px;
+	background-size: 100%;
+	background: linear-gradient(
+		88.41deg,
+		#05ad25 -16.74%,
+		#0294a1 51.95%,
+		#181381 120.63%
+	);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	padding-bottom: 60px;
+}
+
+.inputs {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 20px;
+	margin-bottom: 80px;
+}
+
+.input {
+	border-radius: 10px;
+	height: 25px;
+}
+
+.rules {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 30px;
+}
+
+.input_checkbox {
+	width: 20px;
+	border: 2px solid;
+	border-image-source: linear-gradient(
+		270deg,
+		#05ac2e 0%,
+		#0294a1 48%,
+		#181381 100%
+	);
+}
+
+.text {
+	width: 313px;
+	font-family: $primary_font;
+	font-size: 1rem;
+	font-weight: 500;
+	text-align: left;
+	color: $black_color;
+	margin-bottom: 20px;
+}
+
+.button {
+	background-color: none;
+	border: none;
+	font-size: 1rem;
+	font-weight: 500;
+	background-size: 100%;
+	background-image: $gradient_color;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.login_or_reg {
+	background-color: none;
+	border: none;
+	font-size: 1rem;
+	font-weight: 500;
+	background-size: 100%;
+	background-image: $gradient_color;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.send_form {
+	width: 355px;
+	height: 50px;
+	padding: 7px 65px 8px 66px;
+	border-radius: 10px;
+	border: none;
+	background-image: $gradient_color;
+	font-size: 1rem;
+	color: $primary_color;
+}
+
+// Для заднего фона
+// background-image: $gradient_color;
+
+// Для текста
+// background-size: 100%;
+// background-image: $gradient_color;
+// background-clip: text;
+// -webkit-text-fill-color: transparent;

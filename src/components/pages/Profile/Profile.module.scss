@@ -108,14 +108,16 @@
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	gap: 10px;
+	gap: 15px;
+	padding-bottom: 10px;
 }
 .input {
-	width: 350px;
+	width: 320px;
 	border-radius: 20px;
 	border: none;
 	background: rgba(240, 240, 240, 1);
 	padding: 14px 22px;
+	font-size: $secondary_font;
 
 	outline: none;
 	&::placeholder {
@@ -514,4 +516,47 @@ input[type='number']::-webkit-outer-spin-button {
 			font-size: 0.8rem;
 		}
 	}
+}
+
+// New input
+.group {
+	position: relative;
+	width: 350px;
+	padding-right: 10px;
+}
+input {
+	font-size: 18px;
+	padding: 10px 15px 10px 20px;
+	display: block;
+	font-size: $secondary_font;
+	max-width: 330px;
+	width: 100%;
+	border: none;
+	border-radius: 17px;
+	background-color: rgba(240, 240, 240, 1);
+}
+input:focus {
+	outline: none;
+}
+
+// Label
+label {
+	color: #999;
+	font-size: 1rem;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 20px;
+	top: 11px;
+	transition: 0.2s ease all;
+	-moz-transition: 0.2s ease all;
+	-webkit-transition: 0.2s ease all;
+}
+
+// Active state input
+input:focus ~ label,
+input:valid ~ label {
+	top: -10px;
+	font-size: 14px;
+	color: rgba(152, 152, 152, 1);
 }

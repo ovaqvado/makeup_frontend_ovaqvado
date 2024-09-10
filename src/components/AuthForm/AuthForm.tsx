@@ -18,25 +18,23 @@ export const AuthForm: FC = () => {
 						type='text'
 					/>
 				</div>
-				<div className={styles.rules}>
-					<input className={styles.input_checkbox} type='checkbox' />
-					<p className={styles.text}>
-						Я даю согласие на
+				{isLogin ? (
+					''
+				) : (
+					<div className={styles.rules}>
+						<input className={styles.input_checkbox} type='checkbox' />
 						<button className={styles.button} rel='stylesheet'>
-							обработку своих персональных данных
+							<span className={styles.text}>Я даю согласие</span> на обработку
+							своих персональных данных и принимаю условия оферты
 						</button>
-						и принимаю
-						<button className={styles.button} rel='stylesheet'>
-							условия оферты
-						</button>
-					</p>
-				</div>
+					</div>
+				)}
 
 				<button className={styles.send_form}>
 					{isLogin ? 'Войти' : 'Зарегистрироваться'}
 				</button>
 				<p className={styles.question}>
-					Уже есть аккаунт?
+					{isLogin ? 'Нет аккаунта?' : 'Уже есть аккаунт?'}
 					<button className={styles.login_or_reg}>
 						{isLogin ? 'Зарегистрируйтесь' : ' Войдите'}
 					</button>

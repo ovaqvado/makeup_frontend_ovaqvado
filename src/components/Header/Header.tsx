@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 // Import img
 import arrow_bottom from '../../img/arrow_bottom.svg'
-import burger from '../../img/burger.svg'
+import english_lang from '../../img/english_lang.svg'
 import events from '../../img/events.svg'
 import home from '../../img/home.svg'
 import language_rus from '../../img/language_rus.svg'
@@ -11,9 +11,10 @@ import notification from '../../img/notification.svg'
 import users from '../../img/people.svg'
 import icon_profile from '../../img/profile_icon.svg'
 // Styles
+import { Burger } from '../Burger/Burger'
 import styles from './Header.module.scss'
 
-// Переводы
+// TranslateHeader
 const translations = {
 	ru: {
 		title: 'MAKEUPDATE',
@@ -39,7 +40,7 @@ export const Header: FC = () => {
 	const location = useLocation()
 	const [activeLink, setActiveLink] = useState<string>('')
 	const [isArrowActive, setIsArrowActive] = useState<boolean>(false)
-	const [language, setLanguage] = useState<'ru' | 'en'>('ru') // Состояние для языка
+	const [language, setLanguage] = useState<'ru' | 'en'>('ru') //State language
 
 	useEffect(() => {
 		const savedActiveLink = localStorage.getItem('activeLink')
@@ -60,7 +61,7 @@ export const Header: FC = () => {
 	}
 
 	const toggleLanguage = () => {
-		setLanguage(prev => (prev === 'ru' ? 'en' : 'ru')) // Переключаем язык
+		setLanguage(prev => (prev === 'ru' ? 'en' : 'ru')) // Switch lang
 	}
 
 	return (
@@ -96,7 +97,7 @@ export const Header: FC = () => {
 				<button className={styles.button} onClick={toggleLanguage}>
 					<img
 						className={styles.img_language}
-						src={language === 'ru' ? language_rus : ''}
+						src={language === 'ru' ? language_rus : english_lang}
 						alt='Change Language'
 					/>
 				</button>
@@ -113,7 +114,7 @@ export const Header: FC = () => {
 					</Link>
 				</div>
 				<button className={styles.button}>
-					<img className={styles.burger_img} src={burger} alt='' />
+					<Burger />
 				</button>
 			</div>
 		</div>

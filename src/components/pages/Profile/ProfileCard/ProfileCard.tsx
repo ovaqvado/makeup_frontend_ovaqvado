@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react'
+import { Inputs } from '../../../Inputs/Inputs'
 import styles from '../Profile.module.scss'
 import location from './img/location.svg'
 import undefinedImage from './img/pussykiller.png'
@@ -8,14 +9,6 @@ import view from './img/view.svg'
 const ProfileCard: FC = () => {
 	const [isEditing, setIsEditing] = useState(false)
 	const [activeButton, setActiveButton] = useState<string | null>(null)
-
-	// Input Form
-	const [name, setName] = useState<string>('')
-	const [twoName, setTwoName] = useState<string>('')
-	const [locationText, setlocationText] = useState<string>('')
-	const [telegram, setTelegram] = useState('')
-	const [number, setNumber] = useState()
-	const [textMe, settextMe] = useState<string>('')
 
 	useEffect(() => {
 		const savedButton = localStorage.getItem('activeButton')
@@ -72,35 +65,7 @@ const ProfileCard: FC = () => {
 			</div>
 
 			{/* Условия для отображения инпутов */}
-			{isEditing && (
-				<div className={styles.inputs_box}>
-					<div className={styles.group}>
-						<input type='text' required />
-						<span className={styles.highlight}></span>
-						<label>Введите Имя*</label>
-					</div>
-					<div className={styles.group}>
-						<input type='text' required />
-						<span className={styles.highlight}></span>
-						<label>Введите Фамилию*</label>
-					</div>
-					<div className={styles.group}>
-						<input type='text' />
-						<span className={styles.highlight}></span>
-						<label>Введите Telegram</label>
-					</div>
-					<div className={styles.group}>
-						<input type='text' />
-						<span className={styles.highlight}></span>
-						<label>Введите телефон</label>
-					</div>
-					<div className={styles.group}>
-						<input type='text' required />
-						<span className={styles.highlight}></span>
-						<label>Введите местоположение*</label>
-					</div>
-				</div>
-			)}
+			{isEditing && <Inputs />}
 
 			<div className={styles.buttons}>
 				<button className={`${styles.button}`} onClick={toggleEdit}>

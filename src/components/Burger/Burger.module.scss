@@ -1,0 +1,49 @@
+@import '/src/globalStyle/variables';
+
+// Styles button_burger
+
+.burger {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	background: none;
+}
+
+.line {
+	height: 3px;
+	width: 200px;
+	background-color: $primary_color;
+	margin: 2px 0;
+	transition: all 0.3s ease;
+}
+
+.menu {
+	max-width: 250px;
+	margin-top: 150px;
+	margin-right: 200px;
+	padding: 13px 20px;
+	border-radius: 5px;
+	z-index: 1000; /* Чтобы меню было поверх других элементов */
+	background-color: rgba(255, 255, 255, 0.452);
+}
+
+.menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.menu li {
+	padding: 10px 0;
+	cursor: pointer;
+}
+
+// Styles burger links
+
+.list_section {
+	font-size: 1.25rem;
+	font-family: $primary_font;
+	color: $primary_color;
+	font-weight: 400;
+	text-align: left;
+}

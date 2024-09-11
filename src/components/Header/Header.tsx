@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 // Import img
-import arrow_bottom from '../../img/arrow_bottom.svg'
 import english_lang from '../../img/english_lang.svg'
 import events from '../../img/events.svg'
 import home from '../../img/home.svg'
@@ -61,7 +60,7 @@ export const Header: FC = () => {
 	}
 
 	const toggleLanguage = () => {
-		setLanguage(prev => (prev === 'ru' ? 'en' : 'ru')) // Switch lang
+		setLanguage(prev => (prev === 'ru' ? 'en' : 'ru')) // Switch language
 	}
 
 	return (
@@ -101,21 +100,19 @@ export const Header: FC = () => {
 						alt='Change Language'
 					/>
 				</button>
-				<div className={styles.button_profile}>
+				<button className={styles.button_profile}>
 					<img className={styles.img_icon} src={icon_profile} alt='' />
-					<Link
+					<button
 						className={`${styles.button_arrow} ${
 							isArrowActive ? styles.active : ''
 						}`}
-						to='/profile'
+						// to='/profile'
 						onClick={toggleArrow}
 					>
-						<img className={styles.arrow_img} src={arrow_bottom} alt='' />
-					</Link>
-				</div>
-				<button className={styles.button}>
-					<Burger />
+						<Burger />
+					</button>
 				</button>
+				<button className={styles.button}></button>
 			</div>
 		</div>
 	)

@@ -6,25 +6,17 @@
 	cursor: pointer;
 	display: flex;
 	flex-direction: column;
-	background: none;
-}
-
-.line {
-	height: 3px;
-	width: 200px;
-	background-color: $primary_color;
-	margin: 2px 0;
-	transition: all 0.3s ease;
 }
 
 .menu {
 	max-width: 250px;
-	margin-top: 150px;
+	width: 100%;
+	margin-top: 200px;
 	margin-right: 200px;
 	padding: 13px 20px;
 	border-radius: 5px;
-	z-index: 1000; /* Чтобы меню было поверх других элементов */
-	background-color: rgba(255, 255, 255, 0.452);
+	z-index: 20;
+	background-color: rgba(88, 88, 88, 0.4);
 }
 
 .menu ul {
@@ -40,10 +32,99 @@
 
 // Styles burger links
 
+.list {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: start;
+	gap: 15px;
+}
+
 .list_section {
-	font-size: 1.25rem;
+	display: flex;
+	font-size: 1rem;
 	font-family: $primary_font;
 	color: $primary_color;
 	font-weight: 400;
 	text-align: left;
+	align-items: start;
+	text-decoration: none;
+	transition: 0.5s all;
+	height: 5px;
+	&:hover {
+		color: #01919f;
+	}
 }
+
+// Styles profile links
+
+.profile_section {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	flex-direction: row;
+	padding-top: 10px;
+	gap: 10px;
+}
+
+.box_img {
+	display: flex;
+	background-color: $primary_color;
+	border-radius: 100%;
+	padding: 2px;
+}
+
+.prof_sec_img {
+	max-width: 25px;
+	max-height: 25px;
+	border-radius: 30px;
+}
+
+.prof_select {
+	font-size: 1rem;
+	font-weight: 400;
+	color: $primary_color;
+}
+
+// Styles line
+.line {
+	height: 2px;
+	width: 200px;
+	background-color: $primary_color;
+	margin: 2px 0;
+	transition: all 0.3s ease;
+}
+
+// Styles border back to img
+
+// .box_img {
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	width: 100%;
+// 	margin: auto;
+// 	max-width: 40px;
+
+// 	position: relative;
+// 	padding: 1px 17px;
+// 	box-sizing: border-box;
+
+// 	$border: 2px;
+// 	color: #fff;
+// 	background: $primary_color;
+// 	background-clip: padding-box;
+// 	border: solid $border transparent;
+// 	border-radius: 3em;
+
+// 	&:before {
+// 		content: '';
+// 		position: absolute;
+// 		top: 0;
+// 		bottom: 0;
+// 		left: 0;
+// 		z-index: -1;
+// 		// margin: -$border;
+// 		border-radius: inherit;
+// 		background-image: $gradient_color;
+// 	}
+// }

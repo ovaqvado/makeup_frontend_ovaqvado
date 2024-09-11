@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-export default configureStore({
+export const store = configureStore({
 	reducer: {},
 })
+export type AppDispatch = typeof store.dispatch
+export type AppStore = typeof store

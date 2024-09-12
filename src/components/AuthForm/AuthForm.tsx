@@ -1,11 +1,14 @@
 import { FC, useState } from 'react'
+import { ModalAuth } from '../../type/type'
 import styles from './AuthFrm.module.scss'
 
-export const AuthForm: FC = () => {
-	const [isLogin, setIsLogin] = useState<boolean>(false)
+export const AuthForm: FC<ModalAuth> = ({ isOpen, onClose }) => {
+	const [isLogin, setIsLogin] = useState(false)
+	if (!isOpen) return null
+
 	return (
 		<div className={styles.box_auth}>
-			<div className={styles.closeModal}></div>
+			<button className={styles.closeModal}>Close modal</button>
 			<form className={styles.form} action=''>
 				<h1 className={styles.title}> {isLogin ? 'Вход' : 'Регистрация'}</h1>
 				<div className={styles.inputs}>

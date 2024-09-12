@@ -3,16 +3,20 @@
 // Styles button_burger
 
 .burger {
+	position: absolute;
 	cursor: pointer;
 	display: flex;
 	flex-direction: column;
+	position: absolute;
+	z-index: 300;
 }
 
 .menu {
+	position: absolute;
 	max-width: 250px;
 	width: 100%;
-	margin-top: 200px;
-	margin-right: 200px;
+	margin-left: 81%;
+	margin-top: 4.3%;
 	padding: 13px 20px;
 	border-radius: 5px;
 	z-index: 20;

@@ -49,12 +49,11 @@ label {
 }
 
 // Active state input
-.input:focus ~ label,
-.input:valid ~ label {
+input:focus ~ label,
+input:valid ~ label {
 	top: -10px;
 	font-size: 14px;
 	color: rgba(152, 152, 152, 1);
-	// border-bottom: 1px solid red;
 }
 
 .error {
@@ -62,7 +61,7 @@ label {
 	font-size: 0.8rem;
 	color: red;
 	margin: 0;
-	padding: 0;
+	padding-left: 10px;
 }
 
 @media (width <= 425px) {

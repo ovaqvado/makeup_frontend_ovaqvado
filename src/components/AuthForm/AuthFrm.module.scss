@@ -3,14 +3,15 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 	width: 427px;
 	height: 693px;
 	border-radius: 15px;
 	background-color: $primary_color;
+	border: 1px solid black;
 }
 
 .closeModal {
-	// position: absolute;
 	right: 20px;
 	width: 24px;
 	height: 24px;
@@ -21,25 +22,6 @@
 	&:hover {
 		opacity: 1;
 	}
-}
-
-.closeModal::before,
-.closeModal::after {
-	content: '';
-	position: absolute;
-	top: 10px;
-	display: block;
-	width: 24px;
-	height: 3px;
-	background: #000;
-}
-
-.closeModal::before {
-	transform: rotate(45deg);
-}
-
-.closeModal::after {
-	transform: rotate(-45deg);
 }
 
 .form {

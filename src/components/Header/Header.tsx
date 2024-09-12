@@ -1,6 +1,9 @@
+'use client'
+// Import react component
 import { FC, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 // Import img
+import arrow_bottom from '../../img/arrow_bottom.svg'
 import english_lang from '../../img/english_lang.svg'
 import events from '../../img/events.svg'
 import home from '../../img/home.svg'
@@ -9,8 +12,11 @@ import lessons from '../../img/lessons.svg'
 import notification from '../../img/notification.svg'
 import users from '../../img/people.svg'
 import icon_profile from '../../img/profile_icon.svg'
+
+// Type header
+import { HeaderButton } from '../../type/type'
+
 // Styles
-import { Burger } from '../Burger/Burger'
 import styles from './Header.module.scss'
 
 // TranslateHeader
@@ -35,10 +41,9 @@ const translations = {
 	},
 }
 
-export const Header: FC = () => {
+export const Header: FC<HeaderButton> = ({ openModal }) => {
 	const location = useLocation()
 	const [activeLink, setActiveLink] = useState<string>('')
-	const [isArrowActive, setIsArrowActive] = useState<boolean>(false)
 	const [language, setLanguage] = useState<'ru' | 'en'>('ru') //State language
 
 	useEffect(() => {
@@ -55,14 +60,10 @@ export const Header: FC = () => {
 		localStorage.setItem('activeLink', link)
 	}
 
-	const toggleArrow = () => {
-		setIsArrowActive(prev => !prev)
-	}
-
 	const toggleLanguage = () => {
-		setLanguage(prev => (prev === 'ru' ? 'en' : 'ru')) // Switch language
+		setLanguage(prev => (prev === 'ru' ? 'en' : 'ru'))
 	}
-
+	// Modal window if user click arrow profile
 	return (
 		<div className={styles.header}>
 			<h1 className={styles.title}>{translations[language].title} </h1>
@@ -100,17 +101,13 @@ export const Header: FC = () => {
 						alt='Change Language'
 					/>
 				</button>
-				<button className={styles.button_profile}>
-					<img className={styles.img_icon} src={icon_profile} alt='' />
-					<button
-						className={`${styles.button_arrow} ${
-							isArrowActive ? styles.active : ''
-						}`}
-						// to='/profile'
-						onClick={toggleArrow}
-					>
-						<Burger />
-					</button>
+				<button onClick={openModal} className={styles.button_profile}>
+					<img
+						className={styles.img_icon}
+						src={icon_profile}
+						alt='icon_profile'
+					/>
+					<img src={arrow_bottom} alt='arrow' />
 				</button>
 				<button className={styles.button}></button>
 			</div>

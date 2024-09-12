@@ -25,36 +25,37 @@ export const Inputs = () => {
 				<input
 					value={inputValue}
 					onChange={handleChange}
+					className={styles.input}
 					type='text'
 					required
 				/>
 				<span className={styles.highlight}></span>
 				<label>Введите Имя*</label>
+				{error && <p className={styles.error}>{error}</p>}
 			</div>
-			{error && <p className={styles.error}>{error}</p>}
 			<div className={styles.group}>
-				<input type='text' required />
+				<input className={styles.input} type='text' required />
 				<span className={styles.highlight}></span>
 				<label>Введите Фамилию*</label>
 			</div>
-			{error && <p className={styles.error}>{error}</p>}
 			<div className={styles.group}>
-				<input type='text' required />
+				<input className={styles.input} type='text' required />
 				<span className={styles.highlight}></span>
 				<label>Введите Telegram</label>
+				{error && <p className={styles.error}>{error}</p>}
 			</div>
 			<div className={styles.group}>
-				<input type='number' required />
+				<input className={styles.input} type='number' required />
 				<span className={styles.highlight}></span>
 				<label>Введите номер</label>
 			</div>
 
 			<div className={styles.group}>
-				<input type='text' required />
+				<input className={styles.input} type='text' required />
 				<span className={styles.highlight}></span>
 				<label>Введите местоположение*</label>
+				{error && <p className={styles.error}>{error}</p>}
 			</div>
-			{error && <p className={styles.error}>{error}</p>}
 		</div>
 	)
 }

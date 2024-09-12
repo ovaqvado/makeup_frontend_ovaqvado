@@ -20,6 +20,9 @@ const ProfileCard: FC = () => {
 	const handleButtonClick = (buttonName: string) => {
 		setActiveButton(buttonName)
 		localStorage.setItem('activeButton', buttonName)
+		if (buttonName == '') {
+			localStorage.setItem('btn', buttonName)
+		}
 	}
 
 	const toggleEdit = () => {

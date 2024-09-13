@@ -9,6 +9,11 @@ import view from './img/view.svg'
 const ProfileCard: FC = () => {
 	const [isEditing, setIsEditing] = useState(false)
 	const [activeButton, setActiveButton] = useState<string | null>(null)
+	const [inputData, setInputData] = useState({
+		name: '',
+		surname: '',
+		location: '',
+	})
 
 	useEffect(() => {
 		const savedButton = localStorage.getItem('activeButton')
@@ -20,15 +25,14 @@ const ProfileCard: FC = () => {
 	const handleButtonClick = (buttonName: string) => {
 		setActiveButton(buttonName)
 		localStorage.setItem('activeButton', buttonName)
-		if (buttonName == '') {
-			localStorage.setItem('btn', buttonName)
-		}
 	}
 
 	const toggleEdit = () => {
 		setIsEditing(prev => !prev)
-		if (isEditing) {
-		}
+	}
+
+	const handleInputChange = (field: string, value: string) => {
+		setInputData(prev => ({ ...prev, [field]: value }))
 	}
 
 	return (
@@ -50,7 +54,7 @@ const ProfileCard: FC = () => {
 						src={location}
 						alt='location_icon'
 					/>
-					Не задано
+					{inputData.location ? inputData.location : 'Не задано'}
 				</p>
 				<div className={styles.videos_view}>
 					<p className={styles.vid_see}>
@@ -68,7 +72,7 @@ const ProfileCard: FC = () => {
 			</div>
 
 			{/* Условия для отображения инпутов */}
-			{isEditing && <Inputs />}
+			{isEditing && <Inputs onInputChange={handleInputChange} />}
 
 			<div className={styles.buttons}>
 				<button className={`${styles.button}`} onClick={toggleEdit}>

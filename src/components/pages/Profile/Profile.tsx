@@ -1,9 +1,18 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import styles from './Profile.module.scss'
 import ProfileCard from './ProfileCard/ProfileCard'
 import profile_top from './ProfileCard/img/profile_top.svg'
 
 export const Profile: FC = () => {
+	const [inputData, setInputData] = useState({
+		name: '',
+		surname: '',
+		location: '',
+	})
+
+	const handleInputChange = (field: string, value: string) => {
+		setInputData(prev => ({ ...prev, [field]: value }))
+	}
 	return (
 		<div className={styles.profile_all_container}>
 			<img
@@ -12,8 +21,14 @@ export const Profile: FC = () => {
 				alt='profile_bg'
 			/>
 			<div className={styles.username_box}>
-				<p className={styles.username}>ИМЯ</p>
-				<p className={styles.username}>ФАМИЛИЯ</p>
+				<p className={styles.username}>
+					{' '}
+					{inputData.location ? inputData.location : 'Не задано'}
+				</p>
+				<p className={styles.username}>
+					{' '}
+					{inputData.location ? inputData.location : 'Не задано'}
+				</p>
 			</div>
 			<ProfileCard />
 			<div className={styles.buttons_page_profile}>

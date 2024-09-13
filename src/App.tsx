@@ -22,7 +22,6 @@ function App() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			// Simulating data loading
 			await new Promise(resolve => setTimeout(resolve, 1000))
 			setLoading(false)
 		}
@@ -33,11 +32,8 @@ function App() {
 		return <Loading />
 	}
 
-	// Open/Close user profile modal
 	const openModal = () => setModalOpen(true)
 	const closeModal = () => setModalOpen(false)
-
-	// Future logic can be added to manage auth modal similarly to isModalOpen
 
 	return (
 		<div className={styles.App}>

@@ -1,0 +1,81 @@
+@import '/src/globalStyle/variables';
+
+.box_user {
+	max-width: 320px;
+	width: 100%;
+	max-height: 450px;
+	height: 100%;
+	margin-top: 400px;
+	border-radius: 20px;
+	box-shadow: 0px 2px 16px 0px rgba(21, 19, 113, 0.1);
+	padding-bottom: 10px;
+}
+
+.line {
+	padding: 0;
+	margin: 0;
+	background-image: $gradient_color;
+	height: 5px;
+	width: 100%;
+}
+
+.user_img {
+	max-width: 320px;
+	width: 100%;
+	max-height: 320px;
+	height: 100%;
+	border-radius: 20px 20px 0px 0px;
+	padding: 0;
+	margin: 0; /* Убедитесь, что здесь нет отступов */
+}
+
+.container {
+	padding: 10px;
+}
+
+.name {
+	font-family: $primary-font;
+	font-size: 1.025rem;
+	font-weight: 700;
+	background-image: $gradient_color;
+	background-size: 100%;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.location {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	gap: 5px;
+}
+
+.view_video {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	flex-direction: row;
+	gap: 20px;
+}
+
+.video {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	gap: 5px;
+}
+
+.view {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	gap: 5px;
+}
+
+.num {
+	font-family: $primary-font;
+	font-size: 1rem;
+	font-weight: 500;
+}

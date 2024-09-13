@@ -2,6 +2,22 @@ export interface Icon {
 	color: string
 }
 
+// Auth type
+
+export interface Register {
+	email: any
+	telegram: any
+	password: any
+}
+
+// User type
+export interface User {
+	name: string
+	location: any
+	videoNum: number
+	viewNum: number
+}
+
 // ModalWindow
 export interface ModalAuth {
 	isOpen: boolean

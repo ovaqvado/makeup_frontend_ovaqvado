@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ModalUser, OpenAuth } from '../../type/type'
 import styles from './Burger.module.scss'
 import noUser from './img/photo_undefined.svg'
@@ -11,7 +11,17 @@ export const Burger: FC<OpenAuth & ModalUser> = ({
 	isAuthenticated,
 	openAuthModal,
 }) => {
+	const navigate = useNavigate()
+
 	if (!isOpen) return null
+
+	const handleProfileClick = () => {
+		if (isAuthenticated) {
+			navigate('/profile')
+		} else {
+			navigate('/authForm')
+		}
+	}
 
 	return (
 		<div className={styles.menu}>
@@ -23,9 +33,9 @@ export const Burger: FC<OpenAuth & ModalUser> = ({
 				<li className={styles.list_section}>Стать пользователем</li>
 				<li className={styles.list_section}>Стать продавцом</li>
 				<div className={styles.line}></div>
-				<Link to='/profile' className={styles.list_section}>
+				<li className={styles.list_section} onClick={handleProfileClick}>
 					Настройки профиля
-				</Link>
+				</li>
 				<li className={styles.list_section}>Добавить профиль</li>
 				<div className={styles.line}></div>
 				<div className={styles.profile_section}>

@@ -19,7 +19,7 @@ export const Burger: FC<OpenAuth & ModalUser> = ({
 		if (isAuthenticated) {
 			navigate('/profile')
 		} else {
-			navigate('/authForm')
+			navigate('/profile')
 		}
 	}
 

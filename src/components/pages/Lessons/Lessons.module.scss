@@ -1,6 +1,5 @@
 @import '/src/globalStyle/variables';
 .lessons_header {
-	background-image: url('./img/bg_lessons.svg');
 	background-size: cover;
 	width: 100%;
 	width: 1920px;
@@ -69,13 +68,13 @@
 
 .vol {
 	position: absolute;
-	z-index: 200;
+	z-index: 1;
 }
 
 .search_img {
 	position: absolute;
 	margin-left: 95%;
-	z-index: 200;
+	z-index: 1;
 }
 
 .input {

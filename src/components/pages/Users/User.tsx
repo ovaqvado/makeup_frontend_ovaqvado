@@ -2,9 +2,9 @@ import { FC } from 'react'
 import styles from './Users.module.scss'
 // Import image
 import location from './img/location.svg'
+import user from './img/motinova.png'
 import video from './img/video.svg'
 import view from './img/view.svg'
-import user from './img/vizajist.jpg'
 
 export const User: FC = () => {
 	return (
@@ -12,7 +12,7 @@ export const User: FC = () => {
 			<img className={styles.user_img} src={user} alt='user_photo' />
 			<div className={styles.line}></div>
 			<div className={styles.container}>
-				<p className={styles.name}>СЕРДАР КАМБАРОВ</p>
+				<p className={styles.name}>Лена Мотинова</p>
 				<p className={styles.location}>
 					<img
 						className={styles.image_location}

@@ -1,7 +1,7 @@
 'use client'
-// Import react component
 import { FC, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+
 // Import img
 import arrow_bottom from '../../img/arrow_bottom.svg'
 import english_lang from '../../img/english_lang.svg'
@@ -12,6 +12,7 @@ import lessons from '../../img/lessons.svg'
 import notification from '../../img/notification.svg'
 import users from '../../img/people.svg'
 import icon_profile from '../../img/profile_icon.svg'
+// Active img
 
 // Type header
 import { HeaderButton } from '../../type/type'
@@ -44,7 +45,7 @@ const translations = {
 export const Header: FC<HeaderButton> = ({ openModal }) => {
 	const location = useLocation()
 	const [activeLink, setActiveLink] = useState<string>('')
-	const [language, setLanguage] = useState<'ru' | 'en'>('ru') //State language
+	const [language, setLanguage] = useState<'ru' | 'en'>('ru')
 
 	useEffect(() => {
 		const savedActiveLink = localStorage.getItem('activeLink')
@@ -63,9 +64,18 @@ export const Header: FC<HeaderButton> = ({ openModal }) => {
 	const toggleLanguage = () => {
 		setLanguage(prev => (prev === 'ru' ? 'en' : 'ru'))
 	}
-	// Modal window if user click arrow profile
+
+	// Styles header on route
+	const shouldShowBackground = ['/users', '/lessons', '/events'].includes(
+		location.pathname
+	)
+
 	return (
-		<div className={styles.header}>
+		<div
+			className={
+				shouldShowBackground ? styles.headerWithBackground : styles.header
+			}
+		>
 			<h1 className={styles.title}>{translations[language].title} </h1>
 			<div className={styles.links}>
 				{translations[language].links.map(link => (

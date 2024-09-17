@@ -3,7 +3,7 @@
 .header {
 	display: flex;
 	position: fixed;
-	z-index: 1;
+	z-index: 20;
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: row;
@@ -11,6 +11,17 @@
 	width: 100%;
 }
 
+.headerWithBackground {
+	display: flex;
+	position: fixed;
+	z-index: 20;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	max-width: 1920px;
+	width: 100%;
+	background-image: url('./header.svg');
+}
 .links {
 	display: flex;
 	flex-direction: row;
@@ -34,11 +45,6 @@
 	font-size: 1.25rem;
 	background-color: rgba(255, 255, 255, 0.24);
 	transition: 1ms;
-}
-
-.activeImage {
-	filter: brightness(1) saturate(100%) invert(0%) sepia(10%) saturate(0%)
-		hue-rotate(189deg) brightness(100%) contrast(100%);
 }
 
 .active {
@@ -128,6 +134,10 @@
 	.img_language {
 		width: 40px;
 		height: 40px;
+	}
+
+	.activeImage {
+		content: url('../../img/burger.svg');
 	}
 
 	.button_profile {

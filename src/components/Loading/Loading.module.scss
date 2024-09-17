@@ -11,8 +11,8 @@
 .title_loader {
 	margin-bottom: 10%;
 	background-image: $gradient_color;
-	font-family: $primary_font;
-	clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .spinner {

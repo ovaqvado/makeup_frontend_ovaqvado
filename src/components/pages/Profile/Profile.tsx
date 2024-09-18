@@ -4,14 +4,13 @@ import ProfileCard from './ProfileCard/ProfileCard'
 import profile_top from './ProfileCard/img/profile_top.svg'
 
 export const Profile: FC = () => {
-	const [inputData, setInputData] = useState({
-		name: '',
-		surname: '',
-		location: '',
-	})
+	const [inputData, setInputData] = useState({ name: '', surname: '' })
 
 	const handleInputChange = (field: string, value: string) => {
-		setInputData(prev => ({ ...prev, [field]: value }))
+		setInputData(prevData => ({
+			...prevData,
+			[field]: value,
+		}))
 	}
 	return (
 		<div className={styles.profile_all_container}>
@@ -22,12 +21,10 @@ export const Profile: FC = () => {
 			/>
 			<div className={styles.username_box}>
 				<p className={styles.username}>
-					{' '}
-					{inputData.location ? inputData.location : 'Не задано'}
+					{inputData.name ? inputData.name : 'ИМЯ'}
 				</p>
 				<p className={styles.username}>
-					{' '}
-					{inputData.location ? inputData.location : 'Не задано'}
+					{inputData.surname ? inputData.surname : 'ФАМИЛИЯ'}
 				</p>
 			</div>
 			<ProfileCard />

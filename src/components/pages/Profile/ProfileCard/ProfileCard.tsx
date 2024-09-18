@@ -10,8 +10,6 @@ const ProfileCard: FC = () => {
 	const [isEditing, setIsEditing] = useState(false)
 	const [activeButton, setActiveButton] = useState<string | null>(null)
 	const [inputData, setInputData] = useState({
-		name: '',
-		surname: '',
 		location: '',
 	})
 
@@ -80,7 +78,6 @@ const ProfileCard: FC = () => {
 						{isEditing ? 'Сохранить' : 'Редактировать'}
 					</span>
 				</button>
-				{/* Остальные кнопки */}
 				{['Опубликовать урок', 'Опубликовать событие', 'Опубликовать фото'].map(
 					button => (
 						<button

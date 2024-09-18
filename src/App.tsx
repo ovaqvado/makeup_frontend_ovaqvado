@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import styles from './App.module.scss'
 import { BottomBarPhone } from './components/BottomBarPhone/BottomBarPhone'
 import { Burger } from './components/Burger/Burger'
@@ -6,18 +6,18 @@ import { Header } from './components/Header/Header'
 import { Loading } from './components/Loading/Loading'
 import AppRouter from './router'
 
-function App() {
+const App: FC = () => {
 	const [loading, setLoading] = useState(true)
 	const [isModalOpen, setModalOpen] = useState(false)
-	const [isAuthModalOpen, setAuthModalOpen] = useState(false)
-	const isAuthenticated = false // Замените на вашу логику аутентификации
+	const isAuthenticated = false
+	const burgerRef = useRef<HTMLDivElement>(null)
 
 	const openAuthModal = () => {
-		setAuthModalOpen(true)
+		setModalOpen(true)
 	}
 
 	const closeAuthModal = () => {
-		setAuthModalOpen(false)
+		setModalOpen(false)
 	}
 
 	useEffect(() => {
@@ -28,23 +28,45 @@ function App() {
 		fetchData()
 	}, [])
 
+	const closeModal = () => setModalOpen(false)
+
+	const handleClickOutside = (event: MouseEvent) => {
+		if (
+			burgerRef.current &&
+			!burgerRef.current.contains(event.target as Node)
+		) {
+			closeModal()
+		}
+	}
+
+	useEffect(() => {
+		if (isModalOpen) {
+			document.addEventListener('click', handleClickOutside)
+		} else {
+			document.removeEventListener('click', handleClickOutside)
+		}
+
+		return () => {
+			document.removeEventListener('click', handleClickOutside)
+		}
+	}, [isModalOpen])
+
 	if (loading) {
 		return <Loading />
 	}
 
-	const openModal = () => setModalOpen(true)
-	const closeModal = () => setModalOpen(false)
-
 	return (
 		<div className={styles.App}>
-			<Header openModal={openModal} />
+			<Header openModal={openAuthModal} />
 			<AppRouter />
-			<Burger
-				isOpen={isModalOpen}
-				onClose={closeModal}
-				isAuthenticated={isAuthenticated}
-				openAuthModal={openAuthModal}
-			/>
+			<div ref={burgerRef}>
+				<Burger
+					isOpen={isModalOpen}
+					onClose={closeModal}
+					isAuthenticated={isAuthenticated}
+					openAuthModal={openAuthModal}
+				/>
+			</div>
 			<BottomBarPhone />
 		</div>
 	)

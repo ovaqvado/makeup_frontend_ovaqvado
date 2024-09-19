@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 // Import img
 import arrow_bottom from '../../img/arrow_bottom.svg'
+import burger_img from '../../img/burger.svg'
 import english_lang from '../../img/english_lang.svg'
 import events from '../../img/events.svg'
 import home from '../../img/home.svg'
@@ -15,7 +16,7 @@ import icon_profile from '../../img/profile_icon.svg'
 // Active img
 
 // Type header
-import { HeaderButton } from '../../type/type'
+import { HeaderButton, openInfo } from '../../type/type'
 
 // Styles
 import styles from './Header.module.scss'
@@ -42,10 +43,11 @@ const translations = {
 	},
 }
 
-export const Header: FC<HeaderButton> = ({ openModal }) => {
+export const Header: FC<HeaderButton & openInfo> = ({ openModal }) => {
 	const location = useLocation()
 	const [activeLink, setActiveLink] = useState<string>('')
 	const [language, setLanguage] = useState<'ru' | 'en'>('ru')
+	const [open, isOpen] = useState(false)
 
 	useEffect(() => {
 		const savedActiveLink = localStorage.getItem('activeLink')
@@ -66,9 +68,12 @@ export const Header: FC<HeaderButton> = ({ openModal }) => {
 	}
 
 	// Styles header on route
-	const shouldShowBackground = ['/users', '/lessons', '/events'].includes(
-		location.pathname
-	)
+	const shouldShowBackground = [
+		'/users',
+		'/lessons',
+		'/events',
+		'/menu',
+	].includes(location.pathname)
 
 	return (
 		<div
@@ -119,7 +124,9 @@ export const Header: FC<HeaderButton> = ({ openModal }) => {
 					/>
 					<img src={arrow_bottom} alt='arrow' />
 				</button>
-				<button className={styles.button}></button>
+				<button onClick={() => isOpen(!isOpen)} className={styles.button}>
+					<img src={burger_img} alt='burger_button' />
+				</button>
 			</div>
 		</div>
 	)

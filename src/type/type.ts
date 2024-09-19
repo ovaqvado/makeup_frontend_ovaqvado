@@ -54,3 +54,8 @@ export interface ILocation {
 	value: string
 	onChange: (value: string) => void
 }
+
+export interface openInfo {
+	open: boolean
+	isOpen: boolean
+}

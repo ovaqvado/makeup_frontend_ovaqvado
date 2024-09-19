@@ -2,23 +2,20 @@
 
 .header {
 	display: flex;
+	justify-content: center;
 	position: fixed;
 	z-index: 20;
-	justify-content: space-between;
-	align-items: center;
-	flex-direction: row;
-	max-width: 1920px;
 	width: 100%;
+	gap: 300px;
 }
 
 .headerWithBackground {
 	display: flex;
 	position: fixed;
 	z-index: 20;
-	justify-content: space-between;
-	align-items: center;
+	justify-content: center;
+	gap: 300px;
 	flex-direction: row;
-	max-width: 1920px;
 	width: 100%;
 	background-image: url('./header.svg');
 }

@@ -59,3 +59,25 @@ export interface openInfo {
 	open: boolean
 	isOpen: boolean
 }
+
+// Authorized
+
+export interface IUserData {
+	email: string
+	password: string
+}
+
+export interface IResponseUser {
+	refresh: string
+	access: string
+}
+
+export interface IResponseUserData {
+	token: string
+}
+
+export interface IUser {
+  username: string;
+  email: string;
+  token: string;
+}

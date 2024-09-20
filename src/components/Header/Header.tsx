@@ -16,7 +16,6 @@ import icon_profile from '../../img/profile_icon.svg'
 // Active img
 
 // Type header
-import { HeaderButton, openInfo } from '../../type/type'
 
 // Styles
 import styles from './Header.module.scss'
@@ -43,11 +42,10 @@ const translations = {
 	},
 }
 
-export const Header: FC<HeaderButton & openInfo> = ({ openModal }) => {
+export const Header: FC = () => {
 	const location = useLocation()
 	const [activeLink, setActiveLink] = useState<string>('')
 	const [language, setLanguage] = useState<'ru' | 'en'>('ru')
-	const [open, isOpen] = useState(false)
 
 	useEffect(() => {
 		const savedActiveLink = localStorage.getItem('activeLink')
@@ -73,6 +71,7 @@ export const Header: FC<HeaderButton & openInfo> = ({ openModal }) => {
 		'/lessons',
 		'/events',
 		'/menu',
+		'*',
 	].includes(location.pathname)
 
 	return (
@@ -116,7 +115,7 @@ export const Header: FC<HeaderButton & openInfo> = ({ openModal }) => {
 						alt='Change Language'
 					/>
 				</button>
-				<button onClick={openModal} className={styles.button_profile}>
+				<button className={styles.button_profile}>
 					<img
 						className={styles.img_icon}
 						src={icon_profile}
@@ -124,7 +123,7 @@ export const Header: FC<HeaderButton & openInfo> = ({ openModal }) => {
 					/>
 					<img src={arrow_bottom} alt='arrow' />
 				</button>
-				<button onClick={() => isOpen(!isOpen)} className={styles.button}>
+				<button className={styles.button}>
 					<img src={burger_img} alt='burger_button' />
 				</button>
 			</div>

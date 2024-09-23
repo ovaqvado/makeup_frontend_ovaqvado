@@ -15,12 +15,32 @@ const App: FC = () => {
 		}
 		fetchData()
 	}, [])
+	// Modal Burger
 
+	const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
+		if (event.currentTarget === event.target) {
+			setIsModalOpen(false)
+		}
+	}
+
+	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
+	const openModal = () => {
+		setIsModalOpen(true)
+	}
+
+	const closeModal = () => {
+		setIsModalOpen(false)
+	}
 	return (
-		<div className={styles.App}>
-			<Header />
+		<div onClick={handleOverlayClick} className={styles.App}>
+			<Header onOpen={openModal} />
 			<AppRouter />
-			<Burger />
+			{isModalOpen && (
+				<div className={styles.overlay} onClick={handleOverlayClick}>
+					<Burger isOpen={isModalOpen} onClose={closeModal} />
+				</div>
+			)}
 			<BottomBarPhone />
 		</div>
 	)

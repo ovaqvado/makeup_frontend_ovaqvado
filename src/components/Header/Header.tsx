@@ -18,6 +18,8 @@ import icon_profile from '../../img/profile_icon.svg'
 // Type header
 
 // Styles
+import { HeaderProps } from '../../type/modal'
+import { InfoModal } from '../InfoModal/InfoModal'
 import styles from './Header.module.scss'
 
 // TranslateHeader
@@ -42,10 +44,21 @@ const translations = {
 	},
 }
 
-export const Header: FC = () => {
+export const Header: FC<HeaderProps> = ({ onOpen }) => {
 	const location = useLocation()
 	const [activeLink, setActiveLink] = useState<string>('')
 	const [language, setLanguage] = useState<'ru' | 'en'>('ru')
+	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
+	// Modql window
+
+	const handleOpenModal = () => {
+		setIsModalOpen(true)
+	}
+
+	const handleCloseModal = () => {
+		setIsModalOpen(false)
+	}
 
 	useEffect(() => {
 		const savedActiveLink = localStorage.getItem('activeLink')
@@ -115,7 +128,7 @@ export const Header: FC = () => {
 						alt='Change Language'
 					/>
 				</button>
-				<button className={styles.button_profile}>
+				<button onClick={onOpen} className={styles.button_profile}>
 					<img
 						className={styles.img_icon}
 						src={icon_profile}
@@ -125,6 +138,7 @@ export const Header: FC = () => {
 				</button>
 				<button className={styles.button}>
 					<img src={burger_img} alt='burger_button' />
+					<InfoModal isOpen={isModalOpen} onClose={handleCloseModal} />
 				</button>
 			</div>
 		</div>

@@ -1,18 +1,26 @@
 import { FC } from 'react'
+import { Link } from 'react-router-dom'
+import { ModalWindow } from '../../type/modal'
 import styles from './Burger.module.scss'
 import noUser from './img/photo_undefined.svg'
 import user from './img/pussykiller.png'
 
-export const Burger: FC = () => {
+export const Burger: FC<ModalWindow> = ({ isOpen, onClose }) => {
+	if (!isOpen) return null
+
 	return (
 		<div className={styles.menu}>
-			<button className={styles.close_button}>Закрыть</button>
+			<button onClick={onClose} className={styles.close_button}>
+				Закрыть
+			</button>
 			<ul className={styles.list}>
 				<li className={styles.list_section}>Вы посетитель</li>
 				<li className={styles.list_section}>Стать пользователем</li>
 				<li className={styles.list_section}>Стать продавцом</li>
 				<div className={styles.line}></div>
-				<li className={styles.list_section}>Настройки профиля</li>
+				<Link to='/profile' className={styles.list_section}>
+					Настройки профиля
+				</Link>
 				<li className={styles.list_section}>Добавить профиль</li>
 				<div className={styles.line}></div>
 				<div className={styles.profile_section}>

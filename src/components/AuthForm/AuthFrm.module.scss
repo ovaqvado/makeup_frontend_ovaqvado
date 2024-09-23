@@ -59,8 +59,10 @@
 }
 
 .input {
+	border-radius: 20px;
+	border: 1px solid red;
 	outline: none;
-	border: none;
+	// border: none;
 	border-radius: 10px;
 	height: 25px;
 	font-family: $secondary_font;

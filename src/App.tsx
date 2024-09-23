@@ -1,4 +1,6 @@
 import { FC, useEffect, useState } from 'react'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import styles from './App.module.scss'
 import { BottomBarPhone } from './components/BottomBarPhone/BottomBarPhone'
 import { Burger } from './components/Burger/Burger'
@@ -42,6 +44,7 @@ const App: FC = () => {
 				</div>
 			)}
 			<BottomBarPhone />
+			<ToastContainer position='bottom-left' autoClose={1000} />
 		</div>
 	)
 }

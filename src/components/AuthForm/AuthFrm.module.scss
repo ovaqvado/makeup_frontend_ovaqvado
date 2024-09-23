@@ -1,28 +1,27 @@
 @import '/src//globalStyle/variables';
 .box_auth {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	width: 427px;
-	height: 693px;
+	// height: 693px;
+	height: 70vh;
 	border-radius: 15px;
 	margin-top: 200px;
-	background-color: $primary_color;
+	background-color: rgba(255, 255, 255, 1);
 	border: 1px solid black;
 }
 
 .closeModal {
-	right: 20px;
-	width: 24px;
-	height: 24px;
-	opacity: 0.2;
+	top: 5%;
+	left: 60%;
+	right: 0;
+	border: none;
+	background: none;
 	cursor: pointer;
-	transition: opacity ease 0.5s;
-
-	&:hover {
-		opacity: 1;
-	}
+	position: absolute;
 }
 
 .form {
@@ -60,9 +59,9 @@
 
 .input {
 	border-radius: 20px;
-	border: 1px solid red;
+	padding: 5px 10px;
 	outline: none;
-	// border: none;
+	border: none;
 	border-radius: 10px;
 	height: 25px;
 	font-family: $secondary_font;
@@ -72,8 +71,11 @@
 
 .rules {
 	display: flex;
+	align-items: start;
+	justify-content: left;
 	flex-direction: row;
 	margin-bottom: 30px;
+	width: 355px;
 }
 
 .input_checkbox {
@@ -88,6 +90,9 @@
 }
 
 .text {
+	display: flex;
+	justify-content: start;
+	align-items: left;
 	width: 313px;
 	font-family: $primary_font;
 	font-size: 1rem;

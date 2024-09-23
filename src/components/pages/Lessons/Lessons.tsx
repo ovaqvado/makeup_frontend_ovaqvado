@@ -1,20 +1,20 @@
-import { FC } from 'react'
-import styles from './Lessons.module.scss'
+import { FC, useState } from 'react'
 import img from './img/img.svg'
 import search from './img/search.svg'
+import styles from './Lessons.module.scss'
 
 import { Lesson } from './lesson'
 
 export const Lessons: FC = () => {
+	const [filter, setFilter] = useState<boolean>()
+	const hidden = !setFilter
+
 	return (
 		<div className={styles.lessons}>
 			<header className={styles.lessons_header}></header>
 			<div className={styles.search_filter}>
 				<div className={styles.filter}>
-					<div>
-						<p className={styles.select}>По популярности</p>
-						<p></p>
-					</div>
+					<div></div>
 				</div>
 				<div className={styles.search}>
 					<img className={styles.vol} src={img} alt='' />

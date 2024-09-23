@@ -73,11 +73,12 @@ export interface IResponseUser {
 }
 
 export interface IResponseUserData {
-	token: string
+	email: string
+	password: string
 }
 
 export interface IUser {
-  username: string;
-  email: string;
-  token: string;
+	username: string
+	email: string
+	token: string
 }

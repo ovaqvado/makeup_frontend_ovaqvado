@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 // Import images
 import channel from '../Profile/ProfileCard/img/pussykiller.png'
 import comment from './img/comment.svg'
@@ -11,9 +11,6 @@ import wallet from './img/wallet.svg'
 import styles from './Lessons.module.scss'
 
 export const Lesson: FC = () => {
-	const [filter, setFilter] = useState<boolean>()
-
-	const hiden = !setFilter
 	return (
 		<div className={styles.lesson}>
 			<div className={styles.imageContainer}>

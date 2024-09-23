@@ -52,9 +52,9 @@ export const Header: FC<HeaderProps> = ({ onOpen }) => {
 
 	// Modql window
 
-	const handleOpenModal = () => {
-		setIsModalOpen(true)
-	}
+	// const handleOpenModal = () => {
+	// 	setIsModalOpen(true)
+	// }
 
 	const handleCloseModal = () => {
 		setIsModalOpen(false)
@@ -128,7 +128,12 @@ export const Header: FC<HeaderProps> = ({ onOpen }) => {
 						alt='Change Language'
 					/>
 				</button>
-				<button onClick={onOpen} className={styles.button_profile}>
+				<button
+					onClick={onOpen}
+					className={
+						isModalOpen ? styles.active_button_profile : styles.button_profile
+					}
+				>
 					<img
 						className={styles.img_icon}
 						src={icon_profile}

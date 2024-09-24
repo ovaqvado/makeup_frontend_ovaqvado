@@ -7,16 +7,15 @@
 	flex-direction: column;
 	width: 427px;
 	// height: 693px;
-	height: 70vh;
+	height: auto;
 	border-radius: 15px;
 	margin-top: 200px;
 	background-color: rgba(255, 255, 255, 1);
-	border: 1px solid black;
 }
 
 .closeModal {
-	top: 5%;
-	left: 60%;
+	top: 3%;
+	left: 80%;
 	right: 0;
 	border: none;
 	background: none;
@@ -57,36 +56,70 @@
 	margin-bottom: 30px;
 }
 
-.input {
-	border-radius: 20px;
-	padding: 5px 10px;
-	outline: none;
-	border: none;
+.input_auth {
+	width: 305px;
+	height: 50px;
+	padding-left: 10px;
+	top: 207px;
+	left: 36px;
 	border-radius: 10px;
-	height: 25px;
-	font-family: $secondary_font;
+	border: none;
 	font-size: 1rem;
-	background-color: (240, 240, 240, 1);
+	&::placeholder {
+		font-size: 1rem;
+	}
 }
 
+// Checkbox
 .rules {
+	position: relative;
 	display: flex;
 	align-items: start;
 	justify-content: left;
 	flex-direction: row;
-	margin-bottom: 30px;
+	margin-bottom: 120px;
 	width: 355px;
+}
+.button {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
 }
 
 .input_checkbox {
+	display: none; /* Скрываем стандартный чекбокс */
+}
+
+.checkbox {
 	width: 20px;
-	border: 2px solid;
-	border-image-source: linear-gradient(
-		270deg,
-		#05ac2e 0%,
-		#0294a1 48%,
-		#181381 100%
-	);
+	height: 20px;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	position: relative;
+	margin-right: 10px;
+	transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checked {
+	background-color: #007bff; /* Цвет фона при включении чекбокса */
+	border-color: #007bff; /* Меняем цвет обводки */
+}
+
+.checkbox:after {
+	content: '';
+	position: absolute;
+	left: 6px;
+	top: 2px;
+	width: 6px;
+	height: 12px;
+	border: solid white;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+	display: none;
+}
+
+.checked:after {
+	display: block; /* Показываем белую галочку при включении чекбокса */
 }
 
 .text {
@@ -122,6 +155,9 @@
 	background-image: $gradient_color;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .send_form {

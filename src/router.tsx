@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
 
-import { AuthForm } from './components/AuthForm/AuthForm'
 import { Confirm } from './components/Confirm/Confirm'
 import { Error } from './components/ErrorPage/Error'
 import Events from './components/pages/Events/Events'
@@ -18,7 +17,6 @@ function AppRouter() {
 			<Route path='/users' element={<Users />} />
 			<Route path='/events' element={<Events />} />
 			<Route path='/profile' element={<Profile />} />
-			<Route path='/authForm' element={<AuthForm />} />
 			<Route path='*' element={<Error />} />
 			<Route path='/confirmEmail' element={<Confirm />} />
 			<Route path='/menu' element={<Menu />} />

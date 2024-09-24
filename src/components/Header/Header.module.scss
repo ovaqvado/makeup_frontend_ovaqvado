@@ -94,9 +94,7 @@
 	max-width: 89px;
 	width: 100%;
 	height: 50px;
-	border-top-left-radius: 30px;
-	border-top-right-radius: 30px;
-	border-bottom-left-radius: 30px;
+	border-radius: 20px;
 	border: none;
 	padding: 0px 10px 0px 5px;
 	gap: 10px;
@@ -109,6 +107,9 @@
 .active_button_profile {
 	display: flex;
 	background-color: rgba(88, 88, 88, 0.4);
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	border-bottom-left-radius: 30px;
 }
 
 .image_radius {

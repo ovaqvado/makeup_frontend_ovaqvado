@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { toast } from 'react-toastify'
+import { Bounce, toast } from 'react-toastify'
 import { setTokenToSessionStorage } from '../../helpers/localStorage.helper'
 import { useAppDispatch } from '../../hooks/hooks'
 import { AuthService } from '../../servise/servise'
@@ -7,15 +7,25 @@ import { login } from '../../store/user/user.slice'
 import styles from './AuthFrm.module.scss'
 
 // Import img
+import { AuthForm as AuthFormType } from '../../type/modal'
+import { Checkbox } from '../Chekcbox/Checkbox'
 import cross from './cross.svg'
 
-export const AuthForm: FC = () => {
-	const [username, setIsName] = useState<string>('')
-	const [email, setIsEmail] = useState<string>('')
-	const [password, setIsPassword] = useState<string>('')
-	const [confirmPassword, setConfirmPassword] = useState<string>('') // Для повторного пароля
+export const AuthForm: FC<AuthFormType> = ({ isOpen, onClose }) => {
+	// Checkbox
+	const [isChecked, setIsChecked] = useState<boolean>(false)
+	// Inputs Form
+	const [isAuthForm, setIsAuthForm] = useState(false)
+	const [username, setUsername] = useState<string>('')
+	const [email, setEmail] = useState<string>('')
+	const [password, setPassword] = useState<string>('')
+	// Confirm password
+	const [confirmPassword, setConfirmPassword] = useState<string>('')
+	// Check authorized
 	const [isLogin, setIsLogin] = useState<boolean>(true)
 	const dispatch = useAppDispatch()
+
+	if (!isOpen) return null
 
 	const toggleForm = () => {
 		setIsLogin(prev => !prev)
@@ -27,7 +37,6 @@ export const AuthForm: FC = () => {
 			toast.error('Пароли не совпадают')
 			return
 		}
-
 		try {
 			const data = await AuthService.registration({
 				email,
@@ -39,7 +48,17 @@ export const AuthForm: FC = () => {
 			}
 		} catch (error: any) {
 			const err = error.response?.data.message
-			toast.error(err.toString() || 'Ошибка при создании пользователя')
+			toast.error(err?.toString() || 'Ошибка при создании пользователя', {
+				position: 'top-right',
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: 'light',
+				transition: Bounce,
+			})
 		}
 	}
 
@@ -60,9 +79,14 @@ export const AuthForm: FC = () => {
 			toast.error(err ? err.toString() : 'Ошибка при входе')
 		}
 	}
+
+	const handleCheckboxChange = () => {
+		setIsChecked(!isChecked)
+	}
+
 	return (
 		<div className={styles.box_auth}>
-			<button className={styles.closeModal}>
+			<button onClick={onClose} className={styles.closeModal}>
 				<img src={cross} alt='' />
 			</button>
 			<form
@@ -72,44 +96,41 @@ export const AuthForm: FC = () => {
 				<h1 className={styles.title}>{isLogin ? 'Вход' : 'Регистрация'}</h1>
 				<div className={styles.inputs}>
 					<input
-						onChange={e => setIsEmail(e.target.value)}
-						id='login'
-						className={styles.input}
+						onChange={e => setEmail(e.target.value)}
+						id='email'
+						className={styles.input_auth}
 						placeholder='Почта'
 						type='text'
 					/>
+					{!isLogin && (
+						<input
+							onChange={e => setUsername(e.target.value)}
+							id='username'
+							className={styles.input_auth}
+							placeholder='Телеграмм'
+							type='text'
+						/>
+					)}
 					<input
-						onChange={e => setIsEmail(e.target.value)}
-						id='login'
-						className={styles.input}
-						placeholder='Телеграмм'
-						type='text'
-					/>
-					<input
-						className={styles.input}
+						className={styles.input_auth}
 						id='password'
 						type='password'
-						onChange={e => setIsPassword(e.target.value)}
+						onChange={e => setPassword(e.target.value)}
 						placeholder='Пароль'
 					/>
 					{!isLogin && (
-						<>
-							<input
-								className={styles.input}
-								placeholder='Повторить пароль'
-								type='password'
-								onChange={e => setConfirmPassword(e.target.value)}
-							/>
-						</>
+						<input
+							className={styles.input_auth}
+							placeholder='Повторить пароль'
+							type='password'
+							onChange={e => setConfirmPassword(e.target.value)}
+						/>
 					)}
 				</div>
+
 				{!isLogin && (
 					<div className={styles.rules}>
-						<input className={styles.input_checkbox} type='checkbox' />
-						<button className={styles.button}>
-							<span className={styles.text}>Я даю согласие</span> на обработку
-							своих персональных данных и принимаю условия оферты
-						</button>
+						<Checkbox checked={isChecked} onChange={setIsChecked} />
 					</div>
 				)}
 				<button className={styles.send_form}>
@@ -119,10 +140,10 @@ export const AuthForm: FC = () => {
 					{isLogin ? 'Нет аккаунта?' : 'Уже есть аккаунт?'}
 					<button
 						type='button'
-						className={styles.login_or_reg}
 						onClick={toggleForm}
+						className={styles.login_or_reg}
 					>
-						{isLogin ? 'Зарегистрируйтесь' : ' Войдите'}
+						{isLogin ? 'Зарегистрироваться' : 'Войти'}
 					</button>
 				</p>
 			</form>

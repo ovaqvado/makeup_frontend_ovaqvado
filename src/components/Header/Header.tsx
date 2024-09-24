@@ -50,12 +50,6 @@ export const Header: FC<HeaderProps> = ({ onOpen }) => {
 	const [language, setLanguage] = useState<'ru' | 'en'>('ru')
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
-	// Modql window
-
-	// const handleOpenModal = () => {
-	// 	setIsModalOpen(true)
-	// }
-
 	const handleCloseModal = () => {
 		setIsModalOpen(false)
 	}

@@ -21,9 +21,26 @@
 }
 
 .filter {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
 	background-image: $gradient_color;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
+	font-family: $primary_font;
+	font-size: 1.3rem;
+	cursor: pointer;
+}
+
+.img_filter {
+	padding-right: 10px;
+}
+
+.bottom_line {
+	background-image: $gradient_color;
+	height: 2px;
+	width: 100%;
+	max-width: 200px;
 }
 
 .select {

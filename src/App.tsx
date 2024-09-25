@@ -6,6 +6,7 @@ import { AuthForm } from './components/AuthForm/AuthForm'
 import { BottomBarPhone } from './components/BottomBarPhone/BottomBarPhone'
 import { Burger } from './components/Burger/Burger'
 import { Header } from './components/Header/Header'
+import { Loading } from './components/Loading/Loading'
 import AppRouter from './router'
 
 const App: FC = () => {
@@ -21,7 +22,7 @@ const App: FC = () => {
 		fetchData()
 	}, [])
 
-	// Обрабатывает клик по оверлею
+	// Обрабатывает нажатия по оверлею
 	const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
 		if (event.currentTarget === event.target) {
 			setIsModalOpen(false)
@@ -46,7 +47,7 @@ const App: FC = () => {
 		setIsAuthOpen(false)
 	}
 
-	if (loading) return <div>Loading...</div> // Простой индикатор загрузки
+	if (loading) return <Loading /> // Простой индикатор загрузки
 
 	return (
 		<div onClick={handleOverlayClick} className={styles.App}>

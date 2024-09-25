@@ -1,6 +1,6 @@
 import { FC } from 'react'
 // Import images
-import channel from '../Profile/ProfileCard/img/pussykiller.png'
+import channel from '../Profile/ProfileCard/img/unknown_user.svg'
 import comment from './img/comment.svg'
 import lesson from './img/lesson.svg'
 import more from './img/more_img.svg'

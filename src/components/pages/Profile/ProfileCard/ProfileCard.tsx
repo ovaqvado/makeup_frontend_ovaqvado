@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react'
 import { Inputs } from '../../../Inputs/Inputs'
 import styles from '../Profile.module.scss'
 import location from './img/location.svg'
-import undefinedImage from './img/pussykiller.png'
+import undefinedImage from './img/unknown_user.svg'
 import videos from './img/videos.svg'
 import view from './img/view.svg'
 

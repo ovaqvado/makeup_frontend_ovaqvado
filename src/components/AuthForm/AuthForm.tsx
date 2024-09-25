@@ -15,7 +15,6 @@ export const AuthForm: FC<AuthFormType> = ({ isOpen, onClose }) => {
 	// Checkbox
 	const [isChecked, setIsChecked] = useState<boolean>(false)
 	// Inputs Form
-	const [isAuthForm, setIsAuthForm] = useState(false)
 	const [username, setUsername] = useState<string>('')
 	const [email, setEmail] = useState<string>('')
 	const [password, setPassword] = useState<string>('')
@@ -76,13 +75,22 @@ export const AuthForm: FC<AuthFormType> = ({ isOpen, onClose }) => {
 			}
 		} catch (error: any) {
 			const err = error.response?.data.message
-			toast.error(err ? err.toString() : 'Ошибка при входе')
+			toast.error(err ? err.toString() : 'Ошибка при входе', {
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: 'light',
+				transition: Bounce,
+			})
 		}
 	}
 
-	const handleCheckboxChange = () => {
-		setIsChecked(!isChecked)
-	}
+	// const handleCheckboxChange = () => {
+	// 	setIsChecked(!isChecked)
+	// }
 
 	return (
 		<div className={styles.box_auth}>
@@ -127,6 +135,9 @@ export const AuthForm: FC<AuthFormType> = ({ isOpen, onClose }) => {
 						/>
 					)}
 				</div>
+				{isLogin && (
+					<button className={styles.reset_pass}>Забыли пароль?</button>
+				)}
 
 				{!isLogin && (
 					<div className={styles.rules}>

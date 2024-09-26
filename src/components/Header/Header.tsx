@@ -98,13 +98,7 @@ export const Header: FC<HeaderProps> = ({ onOpen }) => {
 						to={link.to}
 						onClick={() => handleLinkClick(link.to)}
 					>
-						<img
-							src={link.img}
-							alt={link.label}
-							className={`${styles.img_links} ${
-								activeLink === link.to ? styles.activeImage : ''
-							}`}
-						/>
+						<img src={link.img} alt={link.label} className={styles.img_links} />
 						<span className={activeLink === link.to ? styles.activeText : ''}>
 							{link.label}
 						</span>

@@ -25,24 +25,22 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
 	}
 
 	return (
-		<div className='custom-select'>
-			{' '}
-			<div className='select-trigger' onClick={toggleOpen}>
+		<div className={styles.custom_select}>
+			<button className={styles.btn_custom_select} onClick={toggleOpen}>
+				<img className={styles.img_filter} src={filter} alt='' />
+			</button>
+			<div>
 				{selectedOption ? selectedOption.label : placeholder}
+				{isOpen && (
+					<div>
+						{options.map(option => (
+							<div key={option.value} onClick={() => handleSelect(option)}>
+								<div className={styles.bottom_line}></div> {option.label}
+							</div>
+						))}
+					</div>
+				)}
 			</div>
-			{isOpen && (
-				<div className='select-options'>
-					{options.map(option => (
-						<div
-							key={option.value}
-							className='select-option'
-							onClick={() => handleSelect(option)}
-						>
-							<div className={styles.bottom_line}></div> {option.label}
-						</div>
-					))}
-				</div>
-			)}
 		</div>
 	)
 }
@@ -53,10 +51,9 @@ export const Lessons: FC = () => {
 		{ value: '2', label: 'По дате публикации' },
 	]
 	return (
-		<div className={styles.lessons}>
+		<div className={styles.lessons_container}>
 			<div className={styles.search_filter}>
 				<div className={styles.filter}>
-					<img className={styles.img_filter} src={filter} alt='' />
 					<CustomSelect options={options} placeholder='Выберите вариант' />
 				</div>
 				<div className={styles.search}>
@@ -65,7 +62,12 @@ export const Lessons: FC = () => {
 					<img className={styles.search_img} src={search} alt='' />
 				</div>
 			</div>
-			<div className={styles.lessons_box}>
+			<div className={styles.all_lessons_box}>
+				<Lesson />
+				<Lesson />
+				<Lesson />
+				<Lesson />
+				<Lesson />
 				<Lesson />
 				<Lesson />
 				<Lesson />

@@ -34,6 +34,7 @@ export const AuthForm: FC<AuthFormType> = ({ isOpen, onClose }) => {
 		e.preventDefault()
 		if (password !== confirmPassword) {
 			toast.error('Пароли не совпадают')
+			console.log(password.valueOf())
 			return
 		}
 		try {

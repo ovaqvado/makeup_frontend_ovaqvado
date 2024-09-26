@@ -74,11 +74,11 @@ export interface IResponseUser {
 
 export interface IResponseUserData {
 	email: string
+	telegram?: any
 	password: string
 }
 
 export interface IUser {
-	username: string
 	email: string
 	token: string
 }

@@ -54,7 +54,6 @@ export const Lessons: FC = () => {
 	]
 	return (
 		<div className={styles.lessons}>
-			<header className={styles.lessons_header}></header>
 			<div className={styles.search_filter}>
 				<div className={styles.filter}>
 					<img className={styles.img_filter} src={filter} alt='' />
@@ -67,6 +66,12 @@ export const Lessons: FC = () => {
 				</div>
 			</div>
 			<div className={styles.lessons_box}>
+				<Lesson />
+				<Lesson />
+				<Lesson />
+				<Lesson />
+				<Lesson />
+				<Lesson />
 				<Lesson />
 			</div>
 		</div>

@@ -126,18 +126,20 @@
 	}
 
 	.button {
-		width: 45px;
+		width: 55px;
 		height: 45px;
+		border-radius: 40px;
 	}
 
 	.image_radius {
-		width: 37px;
-		height: 34px;
+		width: 30px;
+		height: 24px;
 	}
 
 	.img_language {
-		width: 40px;
-		height: 40px;
+		width: 35px;
+		height: 35px;
+		border-radius: 20px;
 	}
 
 	.activeImage {
@@ -145,7 +147,7 @@
 	}
 
 	.button_profile {
-		padding: 0px 7px 0px 5px;
+		padding: 0px 10px 0px 0px;
 	}
 }
 

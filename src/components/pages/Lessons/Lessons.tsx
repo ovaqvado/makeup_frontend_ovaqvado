@@ -30,11 +30,15 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
 				<img className={styles.img_filter} src={filter} alt='' />
 			</button>
 			<div>
-				{selectedOption ? selectedOption.label : placeholder}
+				{selectedOption ? selectedOption.label : ''}
 				{isOpen && (
 					<div>
 						{options.map(option => (
-							<div key={option.value} onClick={() => handleSelect(option)}>
+							<div
+								className={styles.option}
+								key={option.value}
+								onClick={() => handleSelect(option)}
+							>
 								<div className={styles.bottom_line}></div> {option.label}
 							</div>
 						))}

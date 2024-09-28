@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 // Import img
 import arrow_bottom from '../../img/arrow_bottom.svg'
+import arrow_top from '../../img/arrow_top.svg'
 import burger_img from '../../img/burger.svg'
 import english_lang from '../../img/english_lang.svg'
 import events from '../../img/events.svg'
@@ -49,6 +50,11 @@ export const Header: FC<HeaderProps> = ({ onOpen }) => {
 	const [activeLink, setActiveLink] = useState<string>('')
 	const [language, setLanguage] = useState<'ru' | 'en'>('ru')
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+	const [isArrowUp, setIsArrowUp] = useState<boolean>(false)
+
+	const toggleArrow = () => {
+		setIsArrowUp(prev => !prev) // Переключаем состояние стрелки
+	}
 
 	const handleCloseModal = () => {
 		setIsModalOpen(false)
@@ -116,8 +122,11 @@ export const Header: FC<HeaderProps> = ({ onOpen }) => {
 						alt='Change Language'
 					/>
 				</button>
-				<button
-					onClick={onOpen}
+				<div
+					onClick={() => {
+						toggleArrow()
+						onOpen()
+					}}
 					className={
 						isModalOpen ? styles.active_button_profile : styles.button_profile
 					}
@@ -127,8 +136,8 @@ export const Header: FC<HeaderProps> = ({ onOpen }) => {
 						src={icon_profile}
 						alt='icon_profile'
 					/>
-					<img src={arrow_bottom} alt='arrow' />
-				</button>
+					<img src={isArrowUp ? arrow_top : arrow_bottom} alt='arrow' />
+				</div>
 				<button className={styles.button}>
 					<img src={burger_img} alt='burger_button' />
 					<InfoModal isOpen={isModalOpen} onClose={handleCloseModal} />

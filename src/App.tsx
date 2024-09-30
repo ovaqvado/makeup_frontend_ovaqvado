@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import styles from './App.module.scss'
@@ -6,23 +6,29 @@ import { AuthForm } from './components/AuthForm/AuthForm'
 import { BottomBarPhone } from './components/BottomBarPhone/BottomBarPhone'
 import { Burger } from './components/Burger/Burger'
 import { Header } from './components/Header/Header'
-import { Loading } from './components/Loading/Loading'
+import { Loading } from './components/Loading/Preloader'
 import AppRouter from './router'
 
 const App: FC = () => {
-	const [loading, setLoading] = useState(true) // Начальное состояние загрузки
+	const [loading, setLoading] = useState(true)
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 	const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false)
 
 	useEffect(() => {
 		const fetchData = async () => {
-			await new Promise(resolve => setTimeout(resolve, 1000))
-			setLoading(false) // Устанавливаем loading в false после загрузки
+			try {
+				// Эмулируем загрузку данных
+				await new Promise(resolve => setTimeout(resolve, 1000))
+			} catch (error) {
+				console.error('Ошибка при загрузке данных:', error)
+			} finally {
+				setLoading(false)
+			}
 		}
+
 		fetchData()
 	}, [])
 
-	// Обрабатывает нажатия по оверлею
 	const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
 		if (event.currentTarget === event.target) {
 			setIsModalOpen(false)
@@ -30,31 +36,19 @@ const App: FC = () => {
 		}
 	}
 
-	// Функции открытия и закрытия модальных окон
-	const openModal = () => {
-		setIsModalOpen(true)
-	}
+	const openModal = () => setIsModalOpen(true)
+	const closeModal = () => setIsModalOpen(false)
+	const openAuth = () => setIsAuthOpen(true)
+	const closeAuth = () => setIsAuthOpen(false)
 
-	const closeModal = () => {
-		setIsModalOpen(false)
-	}
-
-	const openAuth = () => {
-		setIsAuthOpen(true)
-	}
-
-	const closeAuth = () => {
-		setIsAuthOpen(false)
-	}
-
-	if (loading) return <Loading /> // Простой индикатор загрузки
+	if (loading) return <Loading />
 
 	return (
 		<div onClick={handleOverlayClick} className={styles.App}>
 			<Header onOpen={openModal} />
 			<AppRouter />
 			{isModalOpen && (
-				<div className={styles.overlay} onClick={handleOverlayClick}>
+				<div className={styles.overlay}>
 					<Burger onOpen={openAuth} isOpen={isModalOpen} onClose={closeModal} />
 				</div>
 			)}
@@ -78,4 +72,5 @@ const App: FC = () => {
 		</div>
 	)
 }
+
 export default App

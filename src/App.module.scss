@@ -3,7 +3,7 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	width: 100%;
+	// width: 100%;
 }
 
 .overlay {
@@ -20,7 +20,7 @@
 
 .overlay_auth {
 	position: fixed;
-	background-color: rgba(128, 128, 128, 0.205);
+	background-color: rgba(0, 0, 0, 0.431);
 	top: 0;
 	left: 0;
 	right: 0;

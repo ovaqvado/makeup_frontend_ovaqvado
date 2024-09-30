@@ -61,17 +61,11 @@ export const Header: FC<HeaderProps> = ({ onOpen }) => {
 	}
 
 	useEffect(() => {
-		const savedActiveLink = localStorage.getItem('activeLink')
-		if (savedActiveLink) {
-			setActiveLink(savedActiveLink)
-		} else {
-			setActiveLink(location.pathname)
-		}
+		setActiveLink(location.pathname)
 	}, [location.pathname])
 
 	const handleLinkClick = (link: string) => {
 		setActiveLink(link)
-		localStorage.setItem('activeLink', link)
 	}
 
 	const toggleLanguage = () => {
@@ -84,7 +78,7 @@ export const Header: FC<HeaderProps> = ({ onOpen }) => {
 		'/lessons',
 		'/events',
 		'/menu',
-		'*',
+		'/*',
 	].includes(location.pathname)
 
 	return (
@@ -136,10 +130,18 @@ export const Header: FC<HeaderProps> = ({ onOpen }) => {
 						src={icon_profile}
 						alt='icon_profile'
 					/>
-					<img src={isArrowUp ? arrow_top : arrow_bottom} alt='arrow' />
+					<img
+						className={styles.arrow}
+						src={isArrowUp ? arrow_top : arrow_bottom}
+						alt='arrow'
+					/>
 				</div>
 				<button className={styles.button}>
-					<img src={burger_img} alt='burger_button' />
+					<img
+						className={styles.burger_img}
+						src={burger_img}
+						alt='burger_button'
+					/>
 					<InfoModal isOpen={isModalOpen} onClose={handleCloseModal} />
 				</button>
 			</div>

@@ -102,7 +102,7 @@ export const AuthForm: FC<AuthFormType> = ({ isOpen, onClose }) => {
 				onSubmit={isLogin ? loginHandler : registrationHandler}
 				className={styles.form}
 			>
-				<h1 className={styles.title}>{isLogin ? 'Вход' : 'Регистрация'}</h1>
+				<h1 className={styles.title}>{isLogin ? 'ВХОД' : 'РЕГИСТРАЦИЯ'}</h1>
 				<div className={styles.inputs}>
 					<input
 						onChange={e => setEmail(e.target.value)}

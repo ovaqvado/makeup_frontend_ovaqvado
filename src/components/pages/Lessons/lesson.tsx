@@ -14,7 +14,7 @@ export const Lesson: FC = () => {
 	return (
 		<div className={styles.lesson}>
 			<div className={styles.imageContainer}>
-				<img className={styles.img_lesson} src={lesson} alt='' />
+				<img className={styles.img_lesson} src={lesson} alt='img_lesson' />
 				<div className={styles.centerOverlay}>
 					<button className={styles.button_play}>
 						<img className={styles.play_img} src={play} alt='' />

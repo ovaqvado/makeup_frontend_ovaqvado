@@ -58,7 +58,10 @@ export const Lessons: FC = () => {
 		<div className={styles.lessons_container}>
 			<div className={styles.search_filter}>
 				<div className={styles.filter}>
-					<CustomSelect options={options} placeholder='Выберите вариант' />
+					<CustomSelect
+						options={options}
+						placeholder='Выберите вариант'
+					></CustomSelect>
 				</div>
 				<div className={styles.search}>
 					<img className={styles.vol} src={img} alt='' />
